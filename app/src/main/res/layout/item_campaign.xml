@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.buzzebeesassignment.data.CampaignDao" />
+    </data>
+
+<androidx.cardview.widget.CardView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:layout_margin="16dp"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="4dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageCampaign"
+            android:layout_width="match_parent"
+            android:layout_height="0dp" 
+            android:layout_weight="1.5"/>
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/black"
+                android:textSize="@dimen/h4"
+                android:text="@{item.name}"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:textColor="@color/text_orange"
+                android:textSize="@dimen/h3"
+                android:text="@{item.price}"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+
+</layout>

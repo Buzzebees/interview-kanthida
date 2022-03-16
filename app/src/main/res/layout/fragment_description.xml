@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.MainActivity">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="viewmodel"
+            type="com.example.buzzebeesassignment.model.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imageBack"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/text_details"
+                android:textSize="@dimen/h1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageCampaign"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_margin="16dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_special_deals"
+                        android:textSize="@dimen/h4"
+                        android:textColor="@color/black"/>
+
+                    <TextView
+                        android:id="@+id/textName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_special_deals"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/text_gray"/>
+
+                    <TextView
+                        android:id="@+id/textPrice"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/text_special_deals"
+                        android:textSize="@dimen/h3"
+                        android:textColor="@color/text_orange"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:text="@string/text_details"
+                        android:textSize="@dimen/h2"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/textDescription"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/h4"
+                        android:textColor="@color/text_gray"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>
