@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".activity.MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <import type="android.view.View"/>
@@ -78,7 +77,7 @@
                         android:id="@+id/textName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_special_deals"
+                        android:text="@{viewmodel.selectedCampaign.name}"
                         android:textSize="@dimen/h2"
                         android:textColor="@color/black"
                         android:textStyle="bold"/>
@@ -92,7 +91,7 @@
                         android:id="@+id/textPrice"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/text_special_deals"
+                        android:text="@{viewmodel.selectedCampaign.price}"
                         android:textSize="@dimen/h3"
                         android:textColor="@color/text_orange"
                         android:textStyle="bold"/>
@@ -110,6 +109,7 @@
                         android:id="@+id/textDescription"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:text="@{viewmodel.selectedCampaign.description}"
                         android:textSize="@dimen/h4"
                         android:textColor="@color/text_gray"/>
 

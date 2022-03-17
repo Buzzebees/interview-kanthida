@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-   <!-- <data>
+    <data>
         <import type="android.view.View"/>
         <variable
             name="viewmodel"
             type="com.example.buzzebeesassignment.model.MainViewModel" />
-    </data>-->
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +23,51 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_margin="16dp" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:progress="70"/>
+
+        <LinearLayout
+            android:id="@+id/llLoadingError"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="16dp"
+            android:visibility="gone"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/h3"
+                android:textColor="@color/black"
+                android:gravity="center" />
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:onClick="@{() -> viewmodel.getAllCampaign()}"
+                android:background="@drawable/shape_rect_8dp_orange">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_try_again"
+                    android:textSize="@dimen/h3"
+                    android:textColor="@color/white"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center" />
+
+            </FrameLayout>
+
+        </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvCampaign"

@@ -18,10 +18,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        viewModel.showError.observe(this, Observer {
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-        })
-
         viewModel.selectedCampaign.observe(this, Observer {
             supportFragmentManager.beginTransaction().add(R.id.flContainer, DescriptionFragment()).commit()
         })

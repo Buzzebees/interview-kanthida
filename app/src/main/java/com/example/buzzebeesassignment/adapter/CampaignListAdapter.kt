@@ -28,7 +28,6 @@ class CampaignListAdapter(val callback: CallBack?): ListAdapter<CampaignDao, Cam
 
     class ViewHolder(val binding: ItemCampaignBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bindItems(data: CampaignDao){
-
             with(data){
                 Glide.with(Contextor.getContext())
                     .load(this.imageUrl)

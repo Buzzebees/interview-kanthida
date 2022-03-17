@@ -1,6 +1,5 @@
 package com.example.buzzebeesassignment.model
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.buzzebeesassignment.Contextor
 import com.example.buzzebeesassignment.R
@@ -17,15 +16,18 @@ class MainViewModel : ViewModel() {
     val campaignItems: LiveData<List<CampaignDao>> = _campaignItems
 
     val showError = MutableLiveData<String>()
+    val isLoading = MutableLiveData<Boolean>()
     val selectedCampaign = MutableLiveData<CampaignDao>()
 
     init {
         getAllCampaign()
     }
 
-    private fun getAllCampaign() {
+    fun getAllCampaign() {
+        isLoading.value = true
         HttpManager.service.getAllCampaign().enqueue(object: retrofit2.Callback<ResponseBody>{
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                isLoading.value = false
                 if(response.isSuccessful){
 
                     try {
@@ -38,7 +40,6 @@ class MainViewModel : ViewModel() {
                             items.add(campaignDao)
                         }
                         _campaignItems.postValue(items)
-                        Log.e("testApi", _campaignItems.toString())
 
                     } catch (e: Exception) {
                     }
@@ -50,6 +51,7 @@ class MainViewModel : ViewModel() {
             }
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                isLoading.value = false
                 onShowError(Contextor.getContext().getString(R.string.text_no_internet))
             }
         })
